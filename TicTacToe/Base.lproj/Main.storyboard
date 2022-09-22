@@ -9,6 +9,31 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="YxQ-HD-o1j">
+            <objects>
+                <viewController id="ZCV-D2-eUx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qsc-t5-RY3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIC TAC TOE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JS5-xL-ARw">
+                                <rect key="frame" x="85" y="202" width="244" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="39"/>
+                                <color key="textColor" name="textColor"/>
+                                <color key="highlightedColor" name="boardColor"/>
+                                <color key="shadowColor" red="0.6376976795" green="0.71144571180000005" blue="0.90862728849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xva-ol-4Mb"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zwh-o5-4SG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-871" y="97"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
@@ -150,18 +175,70 @@
                                 <color key="highlightedColor" name="boardColor"/>
                                 <color key="shadowColor" red="0.6376976795" green="0.71144571180000005" blue="0.90862728849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eob-dy-FYn">
+                                <rect key="frame" x="20" y="91.5" width="374" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hll-iv-hnv">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOu-RA-exd">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                                <color key="textColor" name="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGh-aT-IOr">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="30"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                                <color key="textColor" name="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="R42-Eg-BtU"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QTj-hR-y4h">
+                                        <rect key="frame" x="0.0" y="30" width="374" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ab-Ic-shr">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                <color key="tintColor" red="0.38536933303893034" green="0.56476386662110678" blue="0.66715124881628785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                                <color key="textColor" name="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekc-Y6-SgU">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="30"/>
+                                                <color key="tintColor" red="0.38536933303893034" green="0.56476386662110678" blue="0.66715124881628785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                                <color key="textColor" name="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="rUv-qi-956"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="cdj-qS-v51" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="12s-mC-kI0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eob-dy-FYn" secondAttribute="trailing" constant="20" id="BNh-fY-9sh"/>
                             <constraint firstItem="cdj-qS-v51" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="Iu6-2R-5OH"/>
+                            <constraint firstItem="eob-dy-FYn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R4b-Dh-6gH"/>
+                            <constraint firstItem="eob-dy-FYn" firstAttribute="top" secondItem="QFJ-gE-gcf" secondAttribute="bottom" constant="15" id="RAX-gf-NzR"/>
                             <constraint firstItem="QFJ-gE-gcf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Sr3-dL-pF5"/>
                             <constraint firstItem="QFJ-gE-gcf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="es1-fd-Ctt"/>
                             <constraint firstItem="cdj-qS-v51" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zW1-tb-NXg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="firstPlayerScoreLabel" destination="6ab-Ic-shr" id="hbt-DV-28b"/>
+                        <outlet property="secondPlayerScoreLabel" destination="Ekc-Y6-SgU" id="zdT-7x-9Bc"/>
                         <outletCollection property="buttons" destination="Iu1-jp-0Ni" collectionClass="NSMutableArray" id="qmY-aa-HW4"/>
                         <outletCollection property="buttons" destination="1FX-RK-Rzv" collectionClass="NSMutableArray" id="X65-a3-pPK"/>
                         <outletCollection property="buttons" destination="l1W-WO-cLo" collectionClass="NSMutableArray" id="F4e-gg-VV5"/>
