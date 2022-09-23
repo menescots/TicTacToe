@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     var activePlayer = 1
     var firstPlayerButtons = [Int]()
     var secondPlayerButtons = [Int]()

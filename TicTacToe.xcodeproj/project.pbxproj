@@ -19,6 +19,10 @@
 		7E4DFA8028DAEF3100399313 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA7F28DAEF3100399313 /* board.png */; };
 		7E4DFA8228DAF14800399313 /* lightBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA8128DAF14800399313 /* lightBoard.png */; };
 		7E4DFA8428DAF1EC00399313 /* board-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA8328DAF1EC00399313 /* board-2.png */; };
+		7EF4E2D528DDB96700D8A1AB /* tic-tac-toe.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D428DDB96700D8A1AB /* tic-tac-toe.png */; };
+		7EF4E2D728DDBA5D00D8A1AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D628DDBA5D00D8A1AB /* MenuViewController.swift */; };
+		7EF4E2DA28DDBA8A00D8A1AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D928DDBA8A00D8A1AB /* LoginViewController.swift */; };
+		7EF4E2DC28DDBA9600D8A1AB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4E2DB28DDBA9600D8A1AB /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		7E4DFA7F28DAEF3100399313 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
 		7E4DFA8128DAF14800399313 /* lightBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightBoard.png; sourceTree = "<group>"; };
 		7E4DFA8328DAF1EC00399313 /* board-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "board-2.png"; sourceTree = "<group>"; };
+		7EF4E2D428DDB96700D8A1AB /* tic-tac-toe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tic-tac-toe.png"; path = "../../../Downloads/tic-tac-toe.png"; sourceTree = "<group>"; };
+		7EF4E2D628DDBA5D00D8A1AB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7EF4E2D928DDBA8A00D8A1AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7EF4E2DB28DDBA9600D8A1AB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +113,13 @@
 		7E4DFA4828D88CDD00399313 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				7EF4E2D828DDBA6300D8A1AB /* Controllers */,
 				7E4DFA4928D88CDD00399313 /* AppDelegate.swift */,
 				7E4DFA4B28D88CDD00399313 /* SceneDelegate.swift */,
-				7E4DFA4D28D88CDD00399313 /* ViewController.swift */,
 				7E4DFA4F28D88CDD00399313 /* Main.storyboard */,
 				7E4DFA5228D88CE400399313 /* Assets.xcassets */,
 				7E4DFA8128DAF14800399313 /* lightBoard.png */,
+				7EF4E2D428DDB96700D8A1AB /* tic-tac-toe.png */,
 				7E4DFA8328DAF1EC00399313 /* board-2.png */,
 				7E4DFA7F28DAEF3100399313 /* board.png */,
 				7E4DFA5428D88CE500399313 /* LaunchScreen.storyboard */,
@@ -134,6 +143,17 @@
 				7E4DFA6C28D88CE500399313 /* TicTacToeUITestsLaunchTests.swift */,
 			);
 			path = TicTacToeUITests;
+			sourceTree = "<group>";
+		};
+		7EF4E2D828DDBA6300D8A1AB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7EF4E2D628DDBA5D00D8A1AB /* MenuViewController.swift */,
+				7E4DFA4D28D88CDD00399313 /* ViewController.swift */,
+				7EF4E2D928DDBA8A00D8A1AB /* LoginViewController.swift */,
+				7EF4E2DB28DDBA9600D8A1AB /* RegisterViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +264,7 @@
 				7E4DFA8228DAF14800399313 /* lightBoard.png in Resources */,
 				7E4DFA5628D88CE500399313 /* LaunchScreen.storyboard in Resources */,
 				7E4DFA5328D88CE400399313 /* Assets.xcassets in Resources */,
+				7EF4E2D528DDB96700D8A1AB /* tic-tac-toe.png in Resources */,
 				7E4DFA5128D88CDD00399313 /* Main.storyboard in Resources */,
 				7E4DFA8428DAF1EC00399313 /* board-2.png in Resources */,
 			);
@@ -273,6 +294,9 @@
 				7E4DFA4E28D88CDD00399313 /* ViewController.swift in Sources */,
 				7E4DFA4A28D88CDD00399313 /* AppDelegate.swift in Sources */,
 				7E4DFA4C28D88CDD00399313 /* SceneDelegate.swift in Sources */,
+				7EF4E2DC28DDBA9600D8A1AB /* RegisterViewController.swift in Sources */,
+				7EF4E2DA28DDBA8A00D8A1AB /* LoginViewController.swift in Sources */,
+				7EF4E2D728DDBA5D00D8A1AB /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
