@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
+    private let database = Database.database().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
         changeShapeOfFields()
@@ -30,10 +31,15 @@ class RegisterViewController: UIViewController {
         if checkPassword() {
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
             
-            guard authResult != nil, error == nil, let userid = authResult?.user.uid else {
+            guard authResult != nil, error == nil,
+                  let userid = authResult?.user.uid,
+                  let userEmail = authResult?.user.email else {
                 self.alert()
                 return
             }
+                self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: userEmail)).child("Request").setValue(userid)
+                
+                
                 self.navigationController?.dismiss(animated: true)
                 UserDefaults.standard.set(email, forKey: "email")
             }}
@@ -47,6 +53,10 @@ class RegisterViewController: UIViewController {
         return password == confirmedPassword
     }
     
+    func safeEmail(emailAdress: String) -> String {
+        let splitArray = emailAdress.split(separator: "@")
+        return String(splitArray[0])
+    }
     func alert(){
         let alert = UIAlertController(title: "Error creating user.", message: "Try again", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

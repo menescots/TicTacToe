@@ -60,7 +60,7 @@ class MenuViewController: UIViewController {
             self.present(navigationController, animated: true, completion: nil)
             
         } else {
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BoardVC") as? GameViewController
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "onlineBoardVC") as? OnlineGameViewController
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
