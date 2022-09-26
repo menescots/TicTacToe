@@ -17,6 +17,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var secondPlayerScoreLabel: UILabel!
     var firstPlayerScore = 0
     var secondPlayerScore = 0
+    
+    var userID: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         changeButtonsShape(buttons: buttons)

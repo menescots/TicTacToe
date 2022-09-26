@@ -6,20 +6,56 @@
 //
 
 import UIKit
-
+import Firebase
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         changeShapeOfFields()
-    }
- 
-    @IBAction func registerButtonTapped(_ sender: Any) {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(undoTapped))
     }
     
+    @IBAction func registerButtonTapped(_ sender: Any) {
+        guard let email = emailField.text,
+              !email.isEmpty,
+              let password = passwordField.text,
+              !password.isEmpty,
+              password.count >= 6 else {
+            return
+        }
+        if checkPassword() {
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
+            
+            guard authResult != nil, error == nil, let userid = authResult?.user.uid else {
+                self.alert()
+                return
+            }
+                self.navigationController?.dismiss(animated: true)
+                UserDefaults.standard.set(email, forKey: "email")
+            }}
+        
+    }
+    func checkPassword() -> Bool{
+        guard let password = passwordField.text,
+              let confirmedPassword = confirmPassword.text else {
+            return false
+        }
+        return password == confirmedPassword
+    }
+    
+    func alert(){
+        let alert = UIAlertController(title: "Error creating user.", message: "Try again", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert,animated: true)
+    }
+    
+    @objc func undoTapped(){
+        navigationController?.dismiss(animated: false)
+    }
     func changeShapeOfFields(){
         emailField.layer.cornerRadius = emailField.frame.size.height/2
         passwordField.layer.cornerRadius = passwordField.frame.size.height/2

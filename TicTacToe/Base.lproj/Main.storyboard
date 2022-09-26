@@ -70,23 +70,55 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tic-tac-toe.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Wv-Om-dwL">
                                 <rect key="frame" x="87" y="123" width="240" height="128"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wlK-rK-RjJ">
+                                <rect key="frame" x="20" y="712" width="374" height="114"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icc-he-nEF">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-WT-CsB">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="bgq-dJ-AXq"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Log Out" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                            <color key="baseForegroundColor" red="0.28380198690000003" green="0.50430136020000005" blue="0.43207376209999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="logOutButtonTapped:" destination="ZCV-D2-eUx" eventType="touchUpInside" id="LA2-5I-k7w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xva-ol-4Mb"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Gf-Nd-UuH" firstAttribute="leading" secondItem="Xva-ol-4Mb" secondAttribute="leading" constant="50" id="5Rs-Z5-p0h"/>
                             <constraint firstItem="Xva-ol-4Mb" firstAttribute="trailing" secondItem="JS5-xL-ARw" secondAttribute="trailing" constant="20" id="9vw-TI-cTj"/>
+                            <constraint firstItem="Xva-ol-4Mb" firstAttribute="bottom" secondItem="wlK-rK-RjJ" secondAttribute="bottom" constant="36" id="Euy-b2-7ls"/>
                             <constraint firstItem="Xva-ol-4Mb" firstAttribute="trailing" secondItem="6Gf-Nd-UuH" secondAttribute="trailing" constant="50" id="F4A-Ua-Spp"/>
                             <constraint firstItem="9Wv-Om-dwL" firstAttribute="leading" secondItem="Xva-ol-4Mb" secondAttribute="leading" constant="87" id="Oih-2L-ONP"/>
                             <constraint firstItem="JS5-xL-ARw" firstAttribute="top" secondItem="9Wv-Om-dwL" secondAttribute="bottom" constant="48.5" id="QkO-0R-aSZ"/>
                             <constraint firstItem="6Gf-Nd-UuH" firstAttribute="top" secondItem="JS5-xL-ARw" secondAttribute="bottom" constant="50" id="V5r-gA-dor"/>
                             <constraint firstItem="6Gf-Nd-UuH" firstAttribute="centerY" secondItem="Xva-ol-4Mb" secondAttribute="centerY" id="Wbb-cd-ePG"/>
                             <constraint firstItem="9Wv-Om-dwL" firstAttribute="top" secondItem="Xva-ol-4Mb" secondAttribute="top" constant="35" id="X2b-rS-GN7"/>
+                            <constraint firstItem="wlK-rK-RjJ" firstAttribute="leading" secondItem="Xva-ol-4Mb" secondAttribute="leading" constant="20" id="bWX-eX-3Sn"/>
                             <constraint firstItem="Xva-ol-4Mb" firstAttribute="trailing" secondItem="9Wv-Om-dwL" secondAttribute="trailing" constant="87" id="lsG-8V-QKc"/>
                             <constraint firstItem="JS5-xL-ARw" firstAttribute="leading" secondItem="Xva-ol-4Mb" secondAttribute="leading" constant="20" id="nUg-pn-1jm"/>
+                            <constraint firstItem="Xva-ol-4Mb" firstAttribute="trailing" secondItem="wlK-rK-RjJ" secondAttribute="trailing" constant="20" id="tgy-vu-EI0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IaQ-ge-WFe"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="gfR-WT-CsB" id="rlj-op-EY5"/>
+                        <outlet property="loggedUserLabel" destination="Icc-he-nEF" id="nlQ-iw-BNc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwh-o5-4SG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="812" y="467"/>
+            <point key="canvasLocation" x="897" y="472"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SRh-pC-oMR">
@@ -538,7 +570,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xOC-BE-Fec">
                                         <rect key="frame" x="60" y="574" width="294" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-Jq-WxJ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-Jq-WxJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="44"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Register" cornerStyle="capsule">
@@ -591,6 +623,7 @@
                         <outlet property="confirmPassword" destination="3o4-nZ-Vcj" id="2ET-6q-af9"/>
                         <outlet property="emailField" destination="AeM-Ic-Dw6" id="IOD-45-LkX"/>
                         <outlet property="passwordField" destination="8xV-Tl-6ug" id="FGl-EO-J22"/>
+                        <outlet property="registerButton" destination="ZCd-Jq-WxJ" id="xCq-lH-38D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aM-cC-Scr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

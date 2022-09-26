@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -14,16 +15,32 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeShapeOfFields()
-        
-    }
-
-    @IBAction func loginButtonTapped(_ sender: Any) {
-    }
-    @IBAction func registerButtonTapped(_ sender: Any) {
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "registerVC") as? RegisterViewController
-            self.navigationController?.pushViewController(vc!, animated: true)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeTapped))
     }
     
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        guard let email = emailField.text,
+              let password = passwordField.text,
+              !email.isEmpty,
+              !password.isEmpty,
+              password.count >= 6 else {
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+          guard let strongSelf = self else { return }
+          
+        }
+        UserDefaults.standard.set(email, forKey: "email")
+        navigationController?.dismiss(animated: true)
+    }
+    @IBAction func registerButtonTapped(_ sender: Any) {
+        let popup = self.storyboard?.instantiateViewController(withIdentifier: "registerVC") as! RegisterViewController
+        self.navigationController?.pushViewController(popup, animated: true)
+    }
+    
+    @objc func closeTapped(){
+        navigationController?.dismiss(animated: true)
+    }
     func changeShapeOfFields(){
         emailField.layer.cornerRadius = emailField.frame.size.height/2
         passwordField.layer.cornerRadius = passwordField.frame.size.height/2
