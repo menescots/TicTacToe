@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         changeShapeOfFields()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(undoTapped))
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
@@ -38,7 +39,6 @@ class RegisterViewController: UIViewController {
                 return
             }
                 self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: userEmail)).child("Request").setValue(userid)
-                
                 
                 self.navigationController?.dismiss(animated: true)
                 UserDefaults.standard.set(email, forKey: "email")

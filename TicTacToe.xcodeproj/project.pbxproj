@@ -19,6 +19,7 @@
 		7E4DFA8028DAEF3100399313 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA7F28DAEF3100399313 /* board.png */; };
 		7E4DFA8228DAF14800399313 /* lightBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA8128DAF14800399313 /* lightBoard.png */; };
 		7E4DFA8428DAF1EC00399313 /* board-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA8328DAF1EC00399313 /* board-2.png */; };
+		7E919E6C28E2D8EF0007274C /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E919E6B28E2D8EF0007274C /* KeyboardExtension.swift */; };
 		7EF4E2D528DDB96700D8A1AB /* tic-tac-toe.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D428DDB96700D8A1AB /* tic-tac-toe.png */; };
 		7EF4E2D728DDBA5D00D8A1AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D628DDBA5D00D8A1AB /* MenuViewController.swift */; };
 		7EF4E2DA28DDBA8A00D8A1AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D928DDBA8A00D8A1AB /* LoginViewController.swift */; };
@@ -64,6 +65,7 @@
 		7E4DFA7F28DAEF3100399313 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
 		7E4DFA8128DAF14800399313 /* lightBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightBoard.png; sourceTree = "<group>"; };
 		7E4DFA8328DAF1EC00399313 /* board-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "board-2.png"; sourceTree = "<group>"; };
+		7E919E6B28E2D8EF0007274C /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
 		7EF4E2D428DDB96700D8A1AB /* tic-tac-toe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tic-tac-toe.png"; path = "../../../Downloads/tic-tac-toe.png"; sourceTree = "<group>"; };
 		7EF4E2D628DDBA5D00D8A1AB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		7EF4E2D928DDBA8A00D8A1AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				7EF4E2D828DDBA6300D8A1AB /* Controllers */,
 				7E4DFA4928D88CDD00399313 /* AppDelegate.swift */,
+				7E919E6A28E2D8760007274C /* Extension */,
 				7E4DFA4B28D88CDD00399313 /* SceneDelegate.swift */,
 				7E4DFA4F28D88CDD00399313 /* Main.storyboard */,
 				7EF4E2E428DDCF4500D8A1AB /* GoogleService-Info.plist */,
@@ -154,6 +157,14 @@
 				7E4DFA6C28D88CE500399313 /* TicTacToeUITestsLaunchTests.swift */,
 			);
 			path = TicTacToeUITests;
+			sourceTree = "<group>";
+		};
+		7E919E6A28E2D8760007274C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7E919E6B28E2D8EF0007274C /* KeyboardExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		7EF4E2D828DDBA6300D8A1AB /* Controllers */ = {
@@ -312,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E919E6C28E2D8EF0007274C /* KeyboardExtension.swift in Sources */,
 				7E4DFA4E28D88CDD00399313 /* GameViewController.swift in Sources */,
 				7E4DFA4A28D88CDD00399313 /* AppDelegate.swift in Sources */,
 				7EF4E2E928E1B3E800D8A1AB /* OnlineGameViewController.swift in Sources */,

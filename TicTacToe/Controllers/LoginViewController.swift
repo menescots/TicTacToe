@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         changeShapeOfFields()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeTapped))
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
@@ -27,8 +29,7 @@ class LoginViewController: UIViewController {
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
-          
+            
         }
         UserDefaults.standard.set(email, forKey: "email")
         navigationController?.dismiss(animated: true)

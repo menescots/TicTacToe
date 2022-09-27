@@ -639,7 +639,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rIR-GO-gQT">
-                                <rect key="frame" x="20.5" y="266.5" width="373" height="373"/>
+                                <rect key="frame" x="20.5" y="289.5" width="373" height="372.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6gT-Cs-HyP">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="121"/>
@@ -681,10 +681,10 @@
                                         <color key="tintColor" name="backgroundColor"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="voJ-gx-oNK">
-                                        <rect key="frame" x="0.0" y="126" width="373" height="121"/>
+                                        <rect key="frame" x="0.0" y="126" width="373" height="120.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zia-nl-mfF">
-                                                <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="121" height="120.5"/>
                                                 <color key="backgroundColor" name="textColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
@@ -695,7 +695,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHP-RM-z7z">
-                                                <rect key="frame" x="126" y="0.0" width="121" height="121"/>
+                                                <rect key="frame" x="126" y="0.0" width="121" height="120.5"/>
                                                 <color key="backgroundColor" name="textColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
@@ -706,7 +706,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A5-Pn-yeB">
-                                                <rect key="frame" x="252" y="0.0" width="121" height="121"/>
+                                                <rect key="frame" x="252" y="0.0" width="121" height="120.5"/>
                                                 <color key="backgroundColor" name="textColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
@@ -720,7 +720,7 @@
                                         <color key="tintColor" name="backgroundColor"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="43w-U5-xfl">
-                                        <rect key="frame" x="0.0" y="252" width="373" height="121"/>
+                                        <rect key="frame" x="0.0" y="251.5" width="373" height="121"/>
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuH-0Z-H7q">
                                                 <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
@@ -765,12 +765,12 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xZ1-B5-OvW">
-                                <rect key="frame" x="20" y="170" width="374" height="65"/>
+                                <rect key="frame" x="20" y="174.5" width="374" height="65"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JBL-Wy-ON4">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j9-1D-lUP">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j9-1D-lUP">
                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -778,7 +778,7 @@
                                                 <color key="shadowColor" name="boardColor"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-r3-LwW">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-r3-LwW">
                                                 <rect key="frame" x="187" y="0.0" width="187" height="30"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -823,25 +823,33 @@
                                 <rect key="frame" x="10" y="59" width="394" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other user email..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WGJ-4v-Zhp">
-                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="223" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3EU-u6-q7O">
-                                        <rect key="frame" x="242.5" y="0.0" width="77" height="44"/>
+                                        <rect key="frame" x="228" y="0.0" width="84.5" height="44"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Request" cornerStyle="capsule">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" name="textColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="requestButtonTapped:" destination="zmy-8c-tFQ" eventType="touchUpInside" id="OVZ-FE-RzT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-g0-49Z">
-                                        <rect key="frame" x="324.5" y="0.0" width="69.5" height="44"/>
+                                        <rect key="frame" x="317.5" y="0.0" width="76.5" height="44"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Accept" cornerStyle="capsule">
+                                            <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" name="boardColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="acceptButtonTapped:" destination="zmy-8c-tFQ" eventType="touchUpInside" id="oW8-Og-PQc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -854,17 +862,20 @@
                         <constraints>
                             <constraint firstItem="VaC-lJ-oEj" firstAttribute="trailing" secondItem="xZ1-B5-OvW" secondAttribute="trailing" constant="20" id="4l7-9g-gNt"/>
                             <constraint firstItem="E87-eg-xtN" firstAttribute="top" secondItem="VaC-lJ-oEj" secondAttribute="top" constant="15" id="CU6-LJ-Xt2"/>
-                            <constraint firstItem="rIR-GO-gQT" firstAttribute="centerY" secondItem="VaC-lJ-oEj" secondAttribute="centerY" id="MEe-Pt-J63"/>
                             <constraint firstItem="E87-eg-xtN" firstAttribute="leading" secondItem="uvw-ye-WKH" secondAttribute="leading" constant="10" id="PWt-ix-Tda"/>
+                            <constraint firstItem="rIR-GO-gQT" firstAttribute="centerX" secondItem="xZ1-B5-OvW" secondAttribute="centerX" id="WFt-nJ-EhS"/>
                             <constraint firstItem="rIR-GO-gQT" firstAttribute="width" secondItem="uvw-ye-WKH" secondAttribute="width" multiplier="0.9" id="a0a-2H-6Jo"/>
                             <constraint firstItem="VaC-lJ-oEj" firstAttribute="trailing" secondItem="E87-eg-xtN" secondAttribute="trailing" constant="10" id="aVI-0k-vbq"/>
-                            <constraint firstItem="6gT-Cs-HyP" firstAttribute="top" secondItem="xZ1-B5-OvW" secondAttribute="bottom" constant="31.5" id="h8a-q9-hF9"/>
-                            <constraint firstItem="rIR-GO-gQT" firstAttribute="centerX" secondItem="VaC-lJ-oEj" secondAttribute="centerX" id="iCT-bP-5ez"/>
+                            <constraint firstItem="xZ1-B5-OvW" firstAttribute="top" secondItem="E87-eg-xtN" secondAttribute="bottom" constant="71.5" id="dlZ-gW-BS8"/>
                             <constraint firstItem="xZ1-B5-OvW" firstAttribute="leading" secondItem="VaC-lJ-oEj" secondAttribute="leading" constant="20" id="pIf-de-izV"/>
+                            <constraint firstItem="iXr-YI-Jhw" firstAttribute="top" secondItem="xZ1-B5-OvW" secondAttribute="bottom" constant="50" id="wvy-9m-JML"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailRequestField" destination="WGJ-4v-Zhp" id="x5n-MF-Qg1"/>
                         <outlet property="firstPlayerScoreLabel" destination="Ts1-8q-hSn" id="JM1-ah-4gN"/>
+                        <outlet property="requestedPlayerName" destination="1j9-1D-lUP" id="f6p-91-YSZ"/>
+                        <outlet property="requestingPlayerName" destination="OVW-r3-LwW" id="ZqE-Ig-W3r"/>
                         <outlet property="secondPlayerScoreLabel" destination="cQK-Aq-2sE" id="9To-zE-nnL"/>
                         <outletCollection property="buttons" destination="brv-ie-xGq" collectionClass="NSMutableArray" id="Xct-KR-MFc"/>
                         <outletCollection property="buttons" destination="iXr-YI-Jhw" collectionClass="NSMutableArray" id="8C1-Zl-QqX"/>

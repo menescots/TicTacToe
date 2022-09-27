@@ -35,7 +35,6 @@ class MenuViewController: UIViewController {
                                       handler: { [weak self] _ in
             do {
                 try FirebaseAuth.Auth.auth().signOut()
-                print(FirebaseAuth.Auth.auth().currentUser)
             } catch {
                 print("Failed to log out.")
             }

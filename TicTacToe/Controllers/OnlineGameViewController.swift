@@ -5,6 +5,7 @@
 //  Created by Agata Menes on 26/09/2022.
 //
 import UIKit
+import Firebase
 
 class OnlineGameViewController: UIViewController {
     var activePlayer = 1
@@ -16,19 +17,116 @@ class OnlineGameViewController: UIViewController {
     @IBOutlet weak var secondPlayerScoreLabel: UILabel!
     var firstPlayerScore = 0
     var secondPlayerScore = 0
+    var playerSymbol: String?
+    var sessionID: String?
     
-    var userID: String?
+    @IBOutlet weak var requestedPlayerName: UILabel!
+    @IBOutlet weak var requestingPlayerName: UILabel!
+    @IBOutlet weak var emailRequestField: UITextField!
+    var lastMove: String?
+    private let database = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeButtonsShape(buttons: buttons)
+        incomingRequests()
+        self.hideKeyboardWhenTappedAround()
     }
 
-
-    @IBAction func buttonSelectedEvent(_ sender: Any) {
-        let buttonSelected = sender as! UIButton
-        playGame(selectedButton: buttonSelected)
+    @IBAction func requestButtonTapped(_ sender: Any) {
+        
+        guard let requestedUserEmail = emailRequestField.text,
+              !requestedUserEmail.isEmpty,
+              let currentUserEmail = Firebase.Auth.auth().currentUser?.email else {
+            return
+        }
+        self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: requestedUserEmail)).child("Request").childByAutoId().setValue(currentUserEmail)
+        playerSymbol = "X"
+        resetPlayersScore()
+        cleanBoard()
+        lastMove = nil
+        emailRequestField.text = ""
+        requestingPlayerName.text = safeEmail(emailAdress: currentUserEmail)
+        requestedPlayerName.text = safeEmail(emailAdress: requestedUserEmail)
+        playOnline(sessionID: "\(safeEmail(emailAdress: currentUserEmail))_\(safeEmail(emailAdress: requestedUserEmail))")
     }
     
+    func safeEmail(emailAdress: String) -> String {
+        let splitArray = emailAdress.split(separator: "@")
+        return String(splitArray[0])
+    }
+    
+    func resetPlayersScore(){
+        activePlayer = 1
+        firstPlayerScore = 0
+        secondPlayerScore = 0
+        firstPlayerScoreLabel.text = String(firstPlayerScore)
+        secondPlayerScoreLabel.text = String(firstPlayerScore)
+    }
+    @IBAction func acceptButtonTapped(_ sender: Any) {
+        guard let requestedUserEmail = emailRequestField.text,
+              !requestedUserEmail.isEmpty,
+              let currentUserEmail = Firebase.Auth.auth().currentUser?.email else {
+            return
+        }
+        self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: requestedUserEmail)).child("Request").childByAutoId().setValue(currentUserEmail)
+        playerSymbol = "O"
+        resetPlayersScore()
+        cleanBoard()
+        lastMove = nil
+        emailRequestField.text = ""
+        requestingPlayerName.text = safeEmail(emailAdress: requestedUserEmail)
+        requestedPlayerName.text = safeEmail(emailAdress: currentUserEmail)
+
+        playOnline(sessionID: "\(safeEmail(emailAdress: requestedUserEmail))_\(safeEmail(emailAdress: currentUserEmail))")
+    }
+    @IBAction func buttonSelectedEvent(_ sender: Any) {
+        let buttonSelected = sender as! UIButton
+        guard let sessionID = sessionID ,
+        let currentUserEmail = Firebase.Auth.auth().currentUser?.email else {
+            return
+        }
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).child("last_move").observe(.value, with: { snapshot in
+            guard let lastMoveUser = snapshot.value as? String else {
+                return
+            }
+            self.lastMove = lastMoveUser
+        })
+        guard lastMove != currentUserEmail else {
+            return
+        }
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).child("last_move").setValue(currentUserEmail)
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).child("moves").child("\(buttonSelected.tag)").setValue(currentUserEmail)
+    }
+    
+    func incomingRequests(){
+        guard let currentUserEmail = Firebase.Auth.auth().currentUser?.email,
+              let currentUserUID = Firebase.Auth.auth().currentUser?.uid else {
+            return
+        }
+        self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: currentUserEmail )).child("Request").observe(.value, with: { snapshot in
+            
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshot {
+                    if let playerRequest = snap.value as? String {
+                        self.emailRequestField.text = playerRequest
+                        self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: currentUserEmail )).child("Request").setValue(currentUserUID)
+                    }
+                }
+            }
+                
+        })
+    }
+    func buttonTagToButton(selectedButtonTag: Int){
+        for button in buttons {
+            if button.tag == selectedButtonTag {
+                changeButtonFont(button: button)
+                playGame(selectedButton: button)
+                button.isEnabled = false
+            }
+        }
+        findWinner()
+    }
     func playGame(selectedButton: UIButton){
         if activePlayer == 1 {
             selectedButton.setTitle("X", for: .normal)
@@ -39,11 +137,7 @@ class OnlineGameViewController: UIViewController {
             activePlayer = 1
             secondPlayerButtons.append(selectedButton.tag)
         }
-        selectedButton.isEnabled = false
-        changeButtonFont(button: selectedButton)
-        findWinner()
     }
-    
     func changeButtonFont(button: UIButton){
         button.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 60)
     }
@@ -78,32 +172,55 @@ class OnlineGameViewController: UIViewController {
     }
     
     func winningAlert(){
+        guard let sessionID = sessionID else {
+            return
+        }
+
         let alert = UIAlertController(title: "Congratulations", message: "Player \(activePlayer) Wins!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "One more round!", style: .default) { UIAlertAction in
+        alert.addAction(UIAlertAction(title: "One more round!", style: .cancel) { UIAlertAction in
+            print(self.firstPlayerScore,self.secondPlayerScore)
             self.cleanBoard()
-        })
-        alert.addAction(UIAlertAction(title: "Reset game", style: .default) { UIAlertAction in
-            self.cleanBoard()
-            self.resetPlayersScore()
+            self.database.child("tictactoe").child("PlayingOnline").child(sessionID).removeValue()
         })
         present(alert, animated: true)
     }
     
     func cleanBoard() {
-        firstPlayerButtons = []
-        secondPlayerButtons = []
+        firstPlayerButtons.removeAll()
+        secondPlayerButtons.removeAll()
         for button in buttons {
             button.setTitle("", for: .normal)
             button.isEnabled = true
         }
     }
     
-    func resetPlayersScore(){
-        activePlayer = 1
-        firstPlayerScore = 0
-        secondPlayerScore = 0
-        firstPlayerScoreLabel.text = String(firstPlayerScore)
-        secondPlayerScoreLabel.text = String(firstPlayerScore)
+    func playOnline(sessionID: String){
+        self.sessionID = sessionID
+        
+        guard let currentUserEmail = Firebase.Auth.auth().currentUser?.email else {
+            return
+        }
+        
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).removeValue()
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).child("moves").observe(.value, with: { snapshot in
+            
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                self.firstPlayerButtons.removeAll()
+                self.secondPlayerButtons.removeAll()
+                for snap in snapshot {
+                    if let playerEmail = snap.value as? String {
+                        let buttonID = snap.key
+                        if playerEmail == currentUserEmail {
+                            self.activePlayer = self.playerSymbol == "X" ? 1: 2
+                        } else {
+                            self.activePlayer = self.playerSymbol == "X" ? 2: 1
+                        }
+                        self.buttonTagToButton(selectedButtonTag: Int(buttonID)!)
+                    }
+                }
+            }
+                
+        })
     }
 }
 
