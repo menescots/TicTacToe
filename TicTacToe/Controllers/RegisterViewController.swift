@@ -30,20 +30,30 @@ class RegisterViewController: UIViewController {
             return
         }
         if checkPassword() {
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
+            let safeEmail = safeEmail(emailAdress: email)
             
-            guard authResult != nil, error == nil,
-                  let userid = authResult?.user.uid,
-                  let userEmail = authResult?.user.email else {
-                self.alert()
-                return
-            }
-                self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: userEmail)).child("Request").setValue(userid)
+            database.child("tictactoe").child("users").child(safeEmail).observeSingleEvent(of: .value,
+                                                         with: { snapshot in
+                print(snapshot)
+                guard !snapshot.exists() else {
+                    self.userExistsAlert()
+                    return
+                }
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
                 
-                self.navigationController?.dismiss(animated: true)
-                UserDefaults.standard.set(email, forKey: "email")
-            }}
-        
+                guard authResult != nil, error == nil,
+                      let userid = authResult?.user.uid,
+                      let userEmail = authResult?.user.email else {
+                    self.errorCreatingUserAlert()
+                    return
+                }
+                    self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: userEmail)).child("Request").setValue(userid)
+                    
+                    self.navigationController?.dismiss(animated: true)
+                    UserDefaults.standard.set(email, forKey: "email")
+                }
+            })
+            }
     }
     func checkPassword() -> Bool{
         guard let password = passwordField.text,
@@ -57,12 +67,16 @@ class RegisterViewController: UIViewController {
         let splitArray = emailAdress.split(separator: "@")
         return String(splitArray[0])
     }
-    func alert(){
+    func errorCreatingUserAlert(){
         let alert = UIAlertController(title: "Error creating user.", message: "Try again", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert,animated: true)
     }
-    
+    func userExistsAlert(){
+        let alert = UIAlertController(title: "Error creating user.", message: "User with that email address already exists, try different email. ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert,animated: true)
+    }
     @objc func undoTapped(){
         navigationController?.dismiss(animated: false)
     }
