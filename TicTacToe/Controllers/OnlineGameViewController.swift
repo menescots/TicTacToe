@@ -31,6 +31,7 @@ class OnlineGameViewController: UIViewController {
         changeButtonsShape(buttons: buttons)
         incomingRequests()
         self.hideKeyboardWhenTappedAround()
+        
     }
     
     @IBAction func requestButtonTapped(_ sender: Any) {
@@ -110,7 +111,6 @@ class OnlineGameViewController: UIViewController {
         guard let sessionID = sessionID else {
             return
         }
-        print("in session")
         database.child("tictactoe").child("PlayingOnline").child(sessionID).child("players").observeSingleEvent(of: .value, with: { snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 guard !snapshot.isEmpty else { return }
@@ -120,9 +120,9 @@ class OnlineGameViewController: UIViewController {
                           return
                 }
                 if lastMove == firstPlayer{
-                    self.whoIsmoving.text = "\(self.safeEmail(emailAdress: secondPlayer)) move!"
+                    self.whoIsmoving.text = "\(self.safeEmail(emailAdress: secondPlayer))'s move!"
                 } else if lastMove == secondPlayer {
-                    self.whoIsmoving.text = "\(self.safeEmail(emailAdress: firstPlayer)) move!"
+                    self.whoIsmoving.text = "\(self.safeEmail(emailAdress: firstPlayer))'s move!"
                 }
             }
         })
@@ -193,23 +193,38 @@ class OnlineGameViewController: UIViewController {
             let winningSet = Set(x)
             let firstUserButtonsSet = Set(firstPlayerButtons)
             let secondUserButtonsSet = Set(secondPlayerButtons)
+            
             if winningSet.isSubset(of: firstUserButtonsSet) || winningSet.isSubset(of: secondUserButtonsSet) {
                 DispatchQueue.main.async {
                     self.winningAlert()
                 }
-                changeScore(for: activePlayer)
+            } else if !winningSet.isSubset(of: firstUserButtonsSet) && !winningSet.isSubset(of: secondUserButtonsSet) && firstUserButtonsSet.count+secondUserButtonsSet.count == 9 {
+                DispatchQueue.main.async {
+                    self.drawAlert()
+                }
             }
         }
+    }
+    func drawAlert(){
+        guard let sessionID = sessionID else {
+            return
+        }
+        let alert = UIAlertController(title: "We have a tie!", message: "No one has won!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "One more round!", style: .cancel) { UIAlertAction in
+            self.cleanBoard()
+            self.database.child("tictactoe").child("PlayingOnline").child(sessionID).child("moves").removeValue()
+        })
+        present(alert, animated: true)
     }
     
     func winningAlert(){
         guard let sessionID = sessionID else {
             return
         }
-
         let alert = UIAlertController(title: "Congratulations", message: "Player \(activePlayer) Wins!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "One more round!", style: .cancel) { UIAlertAction in
             self.cleanBoard()
+            self.changeScore(for: self.activePlayer)
             self.database.child("tictactoe").child("PlayingOnline").child(sessionID).child("moves").removeValue()
         })
         present(alert, animated: true)
