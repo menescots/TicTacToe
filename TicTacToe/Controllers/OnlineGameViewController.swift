@@ -19,7 +19,7 @@ class OnlineGameViewController: UIViewController {
     var secondPlayerScore = 0
     var playerSymbol: String?
     var sessionID: String?
-    
+    @IBOutlet weak var whoIsmoving: UILabel!
     @IBOutlet weak var requestedPlayerName: UILabel!
     @IBOutlet weak var requestingPlayerName: UILabel!
     @IBOutlet weak var emailRequestField: UITextField!
@@ -32,20 +32,18 @@ class OnlineGameViewController: UIViewController {
         incomingRequests()
         self.hideKeyboardWhenTappedAround()
     }
-
+    
     @IBAction func requestButtonTapped(_ sender: Any) {
         
         guard let requestedUserEmail = emailRequestField.text,
               !requestedUserEmail.isEmpty,
-              let currentUserEmail = Firebase.Auth.auth().currentUser?.email else {
+              let currentUserEmail = Firebase.Auth.auth().currentUser?.email,
+              requestedUserEmail != currentUserEmail else {
             return
         }
         self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: requestedUserEmail)).child("Request").childByAutoId().setValue(currentUserEmail)
         playerSymbol = "X"
-        resetPlayersScore()
-        cleanBoard()
-        lastMove = nil
-        emailRequestField.text = ""
+        resetGame()
         requestingPlayerName.text = safeEmail(emailAdress: currentUserEmail)
         requestedPlayerName.text = safeEmail(emailAdress: requestedUserEmail)
         playOnline(sessionID: "\(safeEmail(emailAdress: currentUserEmail))_\(safeEmail(emailAdress: requestedUserEmail))")
@@ -54,6 +52,14 @@ class OnlineGameViewController: UIViewController {
     func safeEmail(emailAdress: String) -> String {
         let splitArray = emailAdress.split(separator: "@")
         return String(splitArray[0])
+    }
+    
+    func resetGame(){
+        resetPlayersScore()
+        cleanBoard()
+        lastMove = nil
+        emailRequestField.text = ""
+        whoIsmoving.text = ""
     }
     
     func resetPlayersScore(){
@@ -71,14 +77,15 @@ class OnlineGameViewController: UIViewController {
         }
         self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: requestedUserEmail)).child("Request").childByAutoId().setValue(currentUserEmail)
         playerSymbol = "O"
-        resetPlayersScore()
-        cleanBoard()
-        lastMove = nil
-        emailRequestField.text = ""
+        resetGame()
         requestingPlayerName.text = safeEmail(emailAdress: requestedUserEmail)
         requestedPlayerName.text = safeEmail(emailAdress: currentUserEmail)
-
         playOnline(sessionID: "\(safeEmail(emailAdress: requestedUserEmail))_\(safeEmail(emailAdress: currentUserEmail))")
+        guard let sessionID = sessionID else {
+            return
+        }
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).child("players").child("first").setValue(requestedUserEmail)
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).child("players").child("second").setValue(currentUserEmail)
     }
     @IBAction func buttonSelectedEvent(_ sender: Any) {
         let buttonSelected = sender as! UIButton
@@ -97,6 +104,28 @@ class OnlineGameViewController: UIViewController {
         }
         database.child("tictactoe").child("PlayingOnline").child(sessionID).child("last_move").setValue(currentUserEmail)
         database.child("tictactoe").child("PlayingOnline").child(sessionID).child("moves").child("\(buttonSelected.tag)").setValue(currentUserEmail)
+    }
+    
+    func whosMove(){
+        guard let sessionID = sessionID else {
+            return
+        }
+        print("in session")
+        database.child("tictactoe").child("PlayingOnline").child(sessionID).child("players").observeSingleEvent(of: .value, with: { snapshot in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                guard !snapshot.isEmpty else { return }
+                guard let lastMove = self.lastMove ,
+                      let firstPlayer = snapshot[0].value as? String,
+                      let secondPlayer = snapshot[1].value as? String else {
+                          return
+                }
+                if lastMove == firstPlayer{
+                    self.whoIsmoving.text = "\(self.safeEmail(emailAdress: secondPlayer)) move!"
+                } else if lastMove == secondPlayer {
+                    self.whoIsmoving.text = "\(self.safeEmail(emailAdress: firstPlayer)) move!"
+                }
+            }
+        })
     }
     
     func incomingRequests(){
@@ -121,13 +150,12 @@ class OnlineGameViewController: UIViewController {
         for button in buttons {
             if button.tag == selectedButtonTag {
                 changeButtonFont(button: button)
-                playGame(selectedButton: button)
+                makeMove(selectedButton: button)
                 button.isEnabled = false
             }
         }
-        findWinner()
     }
-    func playGame(selectedButton: UIButton){
+    func makeMove(selectedButton: UIButton){
         if activePlayer == 1 {
             selectedButton.setTitle("X", for: .normal)
             activePlayer = 2
@@ -137,6 +165,7 @@ class OnlineGameViewController: UIViewController {
             activePlayer = 1
             secondPlayerButtons.append(selectedButton.tag)
         }
+        findWinner()
     }
     func changeButtonFont(button: UIButton){
         button.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 60)
@@ -165,7 +194,9 @@ class OnlineGameViewController: UIViewController {
             let firstUserButtonsSet = Set(firstPlayerButtons)
             let secondUserButtonsSet = Set(secondPlayerButtons)
             if winningSet.isSubset(of: firstUserButtonsSet) || winningSet.isSubset(of: secondUserButtonsSet) {
-                winningAlert()
+                DispatchQueue.main.async {
+                    self.winningAlert()
+                }
                 changeScore(for: activePlayer)
             }
         }
@@ -178,9 +209,8 @@ class OnlineGameViewController: UIViewController {
 
         let alert = UIAlertController(title: "Congratulations", message: "Player \(activePlayer) Wins!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "One more round!", style: .cancel) { UIAlertAction in
-            print(self.firstPlayerScore,self.secondPlayerScore)
             self.cleanBoard()
-            self.database.child("tictactoe").child("PlayingOnline").child(sessionID).removeValue()
+            self.database.child("tictactoe").child("PlayingOnline").child(sessionID).child("moves").removeValue()
         })
         present(alert, animated: true)
     }
@@ -203,7 +233,7 @@ class OnlineGameViewController: UIViewController {
         
         database.child("tictactoe").child("PlayingOnline").child(sessionID).removeValue()
         database.child("tictactoe").child("PlayingOnline").child(sessionID).child("moves").observe(.value, with: { snapshot in
-            
+            self.whosMove()
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 self.firstPlayerButtons.removeAll()
                 self.secondPlayerButtons.removeAll()
@@ -219,7 +249,6 @@ class OnlineGameViewController: UIViewController {
                     }
                 }
             }
-                
         })
     }
 }

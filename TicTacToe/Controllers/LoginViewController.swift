@@ -26,19 +26,41 @@ class LoginViewController: UIViewController {
               !email.isEmpty,
               !password.isEmpty,
               password.count >= 6 else {
+            allertUserLoginError()
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            
+            guard authResult != nil, error == nil else {
+                self?.alertFirebaseLogin()
+                return
+            }
+            NotificationCenter.default.post(name: .didLogInNotification, object: nil)
+            UserDefaults.standard.set(email, forKey: "email")
+            self?.navigationController?.dismiss(animated: true)
         }
-        UserDefaults.standard.set(email, forKey: "email")
-        navigationController?.dismiss(animated: true)
     }
     @IBAction func registerButtonTapped(_ sender: Any) {
         let popup = self.storyboard?.instantiateViewController(withIdentifier: "registerVC") as! RegisterViewController
         self.navigationController?.pushViewController(popup, animated: true)
     }
-    
+    func alertFirebaseLogin(){
+        let alert = UIAlertController(title: "Failed to log In",
+                                      message: "Please double-check and try again",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss",
+                                      style: .cancel))
+        
+        present(alert, animated: true)
+    }
+    func allertUserLoginError() {
+        let alert = UIAlertController(title: "Incorrect email or password",
+                                      message: "Please double-check and try again",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss",
+                                      style: .cancel))
+        
+        present(alert, animated: true)
+    }
     @objc func closeTapped(){
         navigationController?.dismiss(animated: true)
     }

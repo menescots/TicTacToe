@@ -10,14 +10,21 @@ import FirebaseAuth
 class MenuViewController: UIViewController {
     @IBOutlet weak var loggedUserLabel: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
+    private var loginObserver: NSObjectProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let loggedUser = UserDefaults.standard.value(forKey: "email") else {
-            loggedUserLabel.text = ""
             return
         }
         loggedUserLabel.text = "Logged as \(loggedUser)"
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.logOutButton.isHidden = false
+            strongSelf.loggedUserLabel.text = "Logged as \(loggedUser)"
+        })
     }
     @IBAction func twoPlayerGameTapped(_ sender: Any) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BoardVC") as? GameViewController
@@ -40,6 +47,7 @@ class MenuViewController: UIViewController {
             }
         }))
         loggedUserLabel.text = ""
+        logOutButton.isHidden = true
         UserDefaults.standard.removeObject(forKey: "email")
         present(actionSheet, animated: true)
     }
