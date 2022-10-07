@@ -15,6 +15,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let loggedUser = UserDefaults.standard.value(forKey: "email") else {
+            logOutButton.isHidden = true
             return
         }
         loggedUserLabel.text = "Logged as \(loggedUser)"

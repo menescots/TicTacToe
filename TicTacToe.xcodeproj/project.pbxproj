@@ -20,6 +20,7 @@
 		7E4DFA8228DAF14800399313 /* lightBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA8128DAF14800399313 /* lightBoard.png */; };
 		7E4DFA8428DAF1EC00399313 /* board-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4DFA8328DAF1EC00399313 /* board-2.png */; };
 		7E919E6C28E2D8EF0007274C /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E919E6B28E2D8EF0007274C /* KeyboardExtension.swift */; };
+		7ED8162A28EF095500C69212 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED8162928EF095500C69212 /* IQKeyboardManagerSwift */; };
 		7EF4E2D528DDB96700D8A1AB /* tic-tac-toe.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D428DDB96700D8A1AB /* tic-tac-toe.png */; };
 		7EF4E2D728DDBA5D00D8A1AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D628DDBA5D00D8A1AB /* MenuViewController.swift */; };
 		7EF4E2DA28DDBA8A00D8A1AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4E2D928DDBA8A00D8A1AB /* LoginViewController.swift */; };
@@ -80,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF4E2E328DDCE3900D8A1AB /* FirebaseDatabase in Frameworks */,
+				7ED8162A28EF095500C69212 /* IQKeyboardManagerSwift in Frameworks */,
 				7EF4E2DF28DDCE3900D8A1AB /* FirebaseAnalytics in Frameworks */,
 				7EF4E2E128DDCE3900D8A1AB /* FirebaseAuth in Frameworks */,
 			);
@@ -199,6 +201,7 @@
 				7EF4E2DE28DDCE3900D8A1AB /* FirebaseAnalytics */,
 				7EF4E2E028DDCE3900D8A1AB /* FirebaseAuth */,
 				7EF4E2E228DDCE3900D8A1AB /* FirebaseDatabase */,
+				7ED8162928EF095500C69212 /* IQKeyboardManagerSwift */,
 			);
 			productName = TicTacToe;
 			productReference = 7E4DFA4628D88CDD00399313 /* TicTacToe.app */;
@@ -274,6 +277,7 @@
 			mainGroup = 7E4DFA3D28D88CDD00399313;
 			packageReferences = (
 				7EF4E2DD28DDCE3800D8A1AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7ED8162828EF095500C69212 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 7E4DFA4728D88CDD00399313 /* Products */;
 			projectDirPath = "";
@@ -676,6 +680,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7ED8162828EF095500C69212 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
 		7EF4E2DD28DDCE3800D8A1AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -687,6 +699,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7ED8162928EF095500C69212 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7ED8162828EF095500C69212 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		7EF4E2DE28DDCE3900D8A1AB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7EF4E2DD28DDCE3800D8A1AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
