@@ -63,8 +63,8 @@ class AIViewController: UIViewController {
         }
     }
     @IBAction func restartGameTapped(_ sender: Any) {
-     resetGame()
-    resetScore()
+        resetGame()
+        resetScore()
     }
     func resetScore(){
         humanScore = 0
@@ -96,7 +96,9 @@ class AIViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        playComputerMove()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.playComputerMove()
+        }
         changeButtonsShape(buttons: buttons)
     }
 }

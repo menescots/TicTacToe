@@ -33,32 +33,29 @@ extension TicTacToeAI {
         var bestMove = -1
         var bestScore: Int = player == Player.computer ? Int.min : Int.max
         var score: Int
-        //If game is over, evalute the situation
+        
         if(status != gameStatus.inProgress || availableMoves.count == 0){
             return evaluateScore(status: status, depth: depth, bestMove: bestMove)
         }
-        //Check the outcome of all available moves
+        
         for move in availableMoves{
             let nextGameState: AIBoard = AIBoard(boardState: game.getBoardState())
             nextGameState.addMove(player: player, atPosition: move)
             
             if(player == Player.computer){
                 score = minMax(game: nextGameState, player: Player.human, depth: depth + 1)[0]
-                //Maxmizes for the computer
                 if score > bestScore {
                     bestScore = score
                     bestMove = move
                 }
             }else{
                 score = minMax(game: nextGameState, player: Player.computer, depth: depth + 1)[0]
-                //Minimizes for the player
                 if score < bestScore {
                     bestScore = score
                     bestMove = move
                 }
             }
         }
-        
         return [bestScore, bestMove]
     }
     

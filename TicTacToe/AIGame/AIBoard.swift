@@ -33,7 +33,6 @@ extension AIBoard {
         return self.boardState[atPosition]
     }
     
-    //check if any of winning sets win
     func checkGameStatus() -> TicTacToeAI.gameStatus{
         for winningSet in winningSets{
             if boardState[winningSet[0]] != 0 && boardState[winningSet[0]] == boardState[winningSet[1]] && boardState[winningSet[1]] == boardState[winningSet[2]] {
