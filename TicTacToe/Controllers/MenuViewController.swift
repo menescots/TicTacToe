@@ -53,7 +53,8 @@ class MenuViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     @IBAction func onePlayerGameTapped(_ sender: Any) {
-        
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AIBoardVC") as? AIViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func playOnlineGameTapped(_ sender: Any) {
