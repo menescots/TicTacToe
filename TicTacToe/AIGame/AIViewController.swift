@@ -26,13 +26,31 @@ class AIViewController: UIViewController {
             self.board.addMove(player: Player.human, atPosition: sender.tag - 1)
             
             gameActive = false
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.playComputerMove()
-            }
+            randomComputerMove()
         }
     }
     
+    private func randomComputerMove() {
+        let randomInt = Int.random(in: 1...2)
+        let availableMoves = board.getAvailableMoves()
+        let randomAvailablePosition = availableMoves.randomElement()
+        switch randomInt {
+        case 1:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.playComputerMove()
+            }
+        case 2:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let button: UIButton = self.view.viewWithTag(randomAvailablePosition! + 1) as! UIButton
+            button.setTitle("X", for: .normal)
+                self.changeButtonFont(button: button)
+            }
+            board.addMove(player: Player.computer, atPosition: randomAvailablePosition)
+            changeGameStatus()
+        default:
+            print("default")
+        }
+    }
     private func playComputerMove(){
         let nextMove = self.AI.nextMove(board: self.board, player: Player.computer)
         if(nextMove >= 0){
@@ -41,6 +59,10 @@ class AIViewController: UIViewController {
             changeButtonFont(button: button)
             self.board.addMove(player: Player.computer, atPosition: nextMove)
         }
+        changeGameStatus()
+    }
+    
+    private func changeGameStatus(){
         let status: TicTacToeAI.gameStatus = self.board.checkGameStatus()
         if(status != TicTacToeAI.gameStatus.inProgress){
             switch status {
@@ -96,9 +118,7 @@ class AIViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.playComputerMove()
-        }
+        randomComputerMove()
         changeButtonsShape(buttons: buttons)
     }
 }

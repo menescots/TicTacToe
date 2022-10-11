@@ -44,13 +44,13 @@ extension TicTacToeAI {
             
             if(player == Player.computer){
                 score = minMax(game: nextGameState, player: Player.human, depth: depth + 1)[0]
-                if score > bestScore {
+                if score > bestScore{
                     bestScore = score
                     bestMove = move
                 }
             }else{
                 score = minMax(game: nextGameState, player: Player.computer, depth: depth + 1)[0]
-                if score < bestScore {
+                if score < bestScore{
                     bestScore = score
                     bestMove = move
                 }
