@@ -29,7 +29,6 @@ class AIViewController: UIViewController {
             randomComputerMove()
         }
     }
-    
     private func randomComputerMove() {
         let randomInt = Int.random(in: 1...2)
         let availableMoves = board.getAvailableMoves()
@@ -45,11 +44,15 @@ class AIViewController: UIViewController {
             button.setTitle("X", for: .normal)
                 self.changeButtonFont(button: button)
             }
+            guard let randomAvailablePosition = randomAvailablePosition else {
+                return
+            }
             board.addMove(player: Player.computer, atPosition: randomAvailablePosition)
             changeGameStatus()
         default:
             print("default")
         }
+        print(availableMoves)
     }
     private func playComputerMove(){
         let nextMove = self.AI.nextMove(board: self.board, player: Player.computer)

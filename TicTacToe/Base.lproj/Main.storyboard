@@ -1021,7 +1021,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
-                                                <size key="shadowOffset" width="1" height="1"/>
+                                                <size key="shadowOffset" width="2" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbO-fP-Bho">
                                                 <rect key="frame" x="192" y="0.0" width="182" height="40"/>
@@ -1029,7 +1029,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
-                                                <size key="shadowOffset" width="1" height="1"/>
+                                                <size key="shadowOffset" width="2" height="1"/>
                                             </label>
                                         </subviews>
                                         <constraints>

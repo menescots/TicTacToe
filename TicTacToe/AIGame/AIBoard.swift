@@ -25,7 +25,8 @@ extension AIBoard {
         return self.boardState
     }
     
-    func addMove(player: Int!, atPosition:Int!) {
+    func addMove(player: Int, atPosition:Int) {
+        
         self.boardState[atPosition] = player
     }
     
