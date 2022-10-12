@@ -48,9 +48,9 @@ class RegisterViewController: UIViewController {
                     return
                 }
                     self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: userEmail)).child("Request").setValue(userid)
-                    
                     self.navigationController?.dismiss(animated: true)
                     UserDefaults.standard.set(email, forKey: "email")
+                    NotificationCenter.default.post(name: .didLogInNotification, object: nil)
                 }
             })
             }
@@ -89,15 +89,17 @@ class RegisterViewController: UIViewController {
         passwordField.layer.borderWidth = 1
         confirmPassword.layer.borderWidth = 1
         
-        emailField.layer.borderColor = UIColor.darkGray.cgColor
-        passwordField.layer.borderColor = UIColor.darkGray.cgColor
-        confirmPassword.layer.borderColor = UIColor.darkGray.cgColor
+        emailField.layer.borderColor = UIColor.lightGray.cgColor
+        passwordField.layer.borderColor = UIColor.lightGray.cgColor
+        confirmPassword.layer.borderColor = UIColor.lightGray.cgColor
         
-        emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0)) //
+        emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         emailField.leftViewMode = .always
-        passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0)) //
+        passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         passwordField.leftViewMode = .always
-        confirmPassword.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0)) //
+        passwordField.isSecureTextEntry = true
+        confirmPassword.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        confirmPassword.isSecureTextEntry = true
         confirmPassword.leftViewMode = .always
     }
 }

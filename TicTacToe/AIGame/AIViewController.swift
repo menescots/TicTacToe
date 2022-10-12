@@ -52,7 +52,6 @@ class AIViewController: UIViewController {
         default:
             print("default")
         }
-        print(availableMoves)
     }
     private func playComputerMove(){
         let nextMove = self.AI.nextMove(board: self.board, player: Player.computer)

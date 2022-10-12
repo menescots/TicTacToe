@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tfC-1O-UMe">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -17,22 +17,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIC TAC TOE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JS5-xL-ARw">
-                                <rect key="frame" x="20" y="298" width="374" height="47"/>
+                                <rect key="frame" x="20" y="289" width="374" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="0AE-r8-0s3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="38"/>
                                 <nil key="textColor"/>
-                                <color key="shadowColor" name="textColor"/>
+                                <color key="shadowColor" red="0.77759521176116642" green="0.5353171487981695" blue="0.6328160677208815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <size key="shadowOffset" width="3" height="3"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="6Gf-Nd-UuH">
-                                <rect key="frame" x="50" y="395" width="314" height="160"/>
+                                <rect key="frame" x="50" y="386" width="314" height="178"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlY-cO-0Eg">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlY-cO-0Eg">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="e9a-2i-0n8"/>
+                                            <constraint firstAttribute="height" constant="50" id="e9a-2i-0n8"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Two players" cornerStyle="capsule">
@@ -44,8 +44,8 @@
                                             <action selector="twoPlayerGameTapped:" destination="ZCV-D2-eUx" eventType="touchUpInside" id="nD4-Z6-cRq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcz-db-sP3">
-                                        <rect key="frame" x="0.0" y="58" width="314" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcz-db-sP3">
+                                        <rect key="frame" x="0.0" y="64" width="314" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="One player" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
@@ -56,8 +56,8 @@
                                             <action selector="onePlayerGameTapped:" destination="ZCV-D2-eUx" eventType="touchUpInside" id="gmj-xz-2vb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-7d-M0u">
-                                        <rect key="frame" x="0.0" y="116" width="314" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-7d-M0u">
+                                        <rect key="frame" x="0.0" y="128" width="314" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Play online" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
@@ -71,19 +71,19 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tic-tac-toe.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Wv-Om-dwL">
-                                <rect key="frame" x="87" y="123" width="240" height="126.5"/>
+                                <rect key="frame" x="87" y="88" width="240" height="152.5"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wlK-rK-RjJ">
-                                <rect key="frame" x="20" y="713.5" width="374" height="112.5"/>
+                                <rect key="frame" x="20" y="722.5" width="374" height="103.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icc-he-nEF">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="39.5"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-WT-CsB">
-                                        <rect key="frame" x="0.0" y="68.5" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="59.5" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="bgq-dJ-AXq"/>
                                         </constraints>
@@ -110,7 +110,7 @@
                             <constraint firstItem="JS5-xL-ARw" firstAttribute="top" secondItem="9Wv-Om-dwL" secondAttribute="bottom" constant="48.5" id="QkO-0R-aSZ"/>
                             <constraint firstItem="6Gf-Nd-UuH" firstAttribute="top" secondItem="JS5-xL-ARw" secondAttribute="bottom" constant="50" id="V5r-gA-dor"/>
                             <constraint firstItem="6Gf-Nd-UuH" firstAttribute="centerY" secondItem="Xva-ol-4Mb" secondAttribute="centerY" id="Wbb-cd-ePG"/>
-                            <constraint firstItem="9Wv-Om-dwL" firstAttribute="top" secondItem="Xva-ol-4Mb" secondAttribute="top" constant="35" id="X2b-rS-GN7"/>
+                            <constraint firstItem="9Wv-Om-dwL" firstAttribute="top" secondItem="Xva-ol-4Mb" secondAttribute="top" id="X2b-rS-GN7"/>
                             <constraint firstItem="wlK-rK-RjJ" firstAttribute="leading" secondItem="Xva-ol-4Mb" secondAttribute="leading" constant="20" id="bWX-eX-3Sn"/>
                             <constraint firstItem="Xva-ol-4Mb" firstAttribute="trailing" secondItem="9Wv-Om-dwL" secondAttribute="trailing" constant="87" id="lsG-8V-QKc"/>
                             <constraint firstItem="JS5-xL-ARw" firstAttribute="leading" secondItem="Xva-ol-4Mb" secondAttribute="leading" constant="20" id="nUg-pn-1jm"/>
@@ -271,7 +271,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOu-RA-exd">
                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
@@ -279,7 +278,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGh-aT-IOr">
                                                 <rect key="frame" x="187" y="0.0" width="187" height="30"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
@@ -397,7 +395,7 @@
                                         <rect key="frame" x="0.0" y="41.5" width="354" height="36"/>
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartQuotesType="no" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAl-fS-nEA">
                                         <rect key="frame" x="0.0" y="82.5" width="354" height="36.5"/>
@@ -410,7 +408,7 @@
                                         <rect key="frame" x="0.0" y="124" width="354" height="36"/>
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -513,6 +511,9 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" name="textColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="registerButtonTapped:" destination="8UG-uQ-BE3" eventType="touchUpInside" id="FzT-5G-34Y"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -532,9 +533,8 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter you email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0VY-YM-kix">
                                         <rect key="frame" x="0.0" y="41" width="354" height="35.5"/>
                                         <color key="backgroundColor" name="backgroundColor"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRa-o1-fsu">
                                         <rect key="frame" x="0.0" y="81.5" width="354" height="36"/>
@@ -546,9 +546,8 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BTJ-8D-thA">
                                         <rect key="frame" x="0.0" y="122.5" width="354" height="36"/>
                                         <color key="backgroundColor" name="backgroundColor"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KG-zQ-XzL">
                                         <rect key="frame" x="0.0" y="163.5" width="354" height="35.5"/>
@@ -560,9 +559,8 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm your password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNS-de-1JH">
                                         <rect key="frame" x="0.0" y="204" width="354" height="36"/>
                                         <color key="backgroundColor" name="backgroundColor"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -609,7 +607,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rIR-GO-gQT">
-                                <rect key="frame" x="20.5" y="281" width="373" height="372.5"/>
+                                <rect key="frame" x="20.5" y="291" width="373" height="372.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6gT-Cs-HyP">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="121"/>
@@ -735,23 +733,21 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xZ1-B5-OvW">
-                                <rect key="frame" x="20" y="166" width="374" height="65"/>
+                                <rect key="frame" x="20" y="166" width="374" height="75"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JBL-Wy-ON4">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1j9-1D-lUP">
                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVW-r3-LwW">
                                                 <rect key="frame" x="187" y="0.0" width="187" height="30"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
                                                 <size key="shadowOffset" width="1" height="1"/>
@@ -762,10 +758,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tf7-2t-Hue">
-                                        <rect key="frame" x="0.0" y="35" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="35" width="374" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts1-8q-hSn">
-                                                <rect key="frame" x="0.0" y="0.0" width="184.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="184.5" height="40"/>
                                                 <color key="tintColor" red="0.38536933299999998" green="0.5647638666" blue="0.66715124879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="38"/>
                                                 <color key="textColor" name="textColor"/>
@@ -774,7 +770,7 @@
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQK-Aq-2sE">
-                                                <rect key="frame" x="189.5" y="0.0" width="184.5" height="30"/>
+                                                <rect key="frame" x="189.5" y="0.0" width="184.5" height="40"/>
                                                 <color key="tintColor" red="0.38536933299999998" green="0.5647638666" blue="0.66715124879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="34"/>
                                                 <color key="textColor" name="textColor"/>
@@ -784,7 +780,7 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="AcF-tC-nS1"/>
+                                            <constraint firstAttribute="height" constant="40" id="AcF-tC-nS1"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -794,6 +790,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other user email..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WGJ-4v-Zhp">
                                         <rect key="frame" x="0.0" y="0.0" width="223" height="44"/>
+                                        <color key="backgroundColor" name="backgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1018,7 +1015,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enx-Q0-uDL">
                                                 <rect key="frame" x="0.0" y="0.0" width="182" height="40"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
                                                 <size key="shadowOffset" width="2" height="1"/>
@@ -1026,7 +1022,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Computer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbO-fP-Bho">
                                                 <rect key="frame" x="192" y="0.0" width="182" height="40"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="shadowColor" name="boardColor"/>
                                                 <size key="shadowOffset" width="2" height="1"/>

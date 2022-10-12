@@ -23,6 +23,10 @@ class MenuViewController: UIViewController {
             guard let strongSelf = self else {
                 return
             }
+            guard let loggedUser = UserDefaults.standard.value(forKey: "email") else {
+                return
+            }
+            print(loggedUser)
             strongSelf.logOutButton.isHidden = false
             strongSelf.loggedUserLabel.text = "Logged as \(loggedUser)"
         })
@@ -43,13 +47,13 @@ class MenuViewController: UIViewController {
                                       handler: { [weak self] _ in
             do {
                 try FirebaseAuth.Auth.auth().signOut()
+                self?.loggedUserLabel.text = ""
+                self?.logOutButton.isHidden = true
+                UserDefaults.standard.removeObject(forKey: "email")
             } catch {
                 print("Failed to log out.")
             }
         }))
-        loggedUserLabel.text = ""
-        logOutButton.isHidden = true
-        UserDefaults.standard.removeObject(forKey: "email")
         present(actionSheet, animated: true)
     }
     @IBAction func onePlayerGameTapped(_ sender: Any) {

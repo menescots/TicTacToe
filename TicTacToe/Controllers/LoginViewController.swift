@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         changeShapeOfFields()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeTapped))
-        
+        passwordField.enablePasswordToggle()
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -34,8 +34,8 @@ class LoginViewController: UIViewController {
                 self?.alertFirebaseLogin()
                 return
             }
-            NotificationCenter.default.post(name: .didLogInNotification, object: nil)
             UserDefaults.standard.set(email, forKey: "email")
+            NotificationCenter.default.post(name: .didLogInNotification, object: nil)
             self?.navigationController?.dismiss(animated: true)
         }
     }
@@ -69,11 +69,12 @@ class LoginViewController: UIViewController {
         passwordField.layer.cornerRadius = passwordField.frame.size.height/2
         emailField.layer.borderWidth = 2
         passwordField.layer.borderWidth = 2
-        emailField.layer.borderColor = UIColor.darkGray.cgColor
-        passwordField.layer.borderColor = UIColor.darkGray.cgColor
+        emailField.layer.borderColor = UIColor.lightGray.cgColor
+        passwordField.layer.borderColor = UIColor.lightGray.cgColor
         emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0)) //
         emailField.leftViewMode = .always
-        passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0)) //
+        passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        passwordField.isSecureTextEntry = true
         passwordField.leftViewMode = .always
     }
 }
