@@ -1115,7 +1115,7 @@
             <point key="canvasLocation" x="2283" y="471"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <image name="tic-tac-toe.png" width="384" height="384"/>
         <namedColor name="backgroundColor">
@@ -1127,5 +1127,8 @@
         <namedColor name="textColor">
             <color red="1" green="0.63529411764705879" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
