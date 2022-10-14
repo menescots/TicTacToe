@@ -449,14 +449,14 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tic-tac-toe.png" translatesAutoresizingMaskIntoConstraints="NO" id="O57-6y-RTC">
-                                <rect key="frame" x="100" y="78" width="214" height="235"/>
+                                <rect key="frame" x="100" y="98" width="214" height="185"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ac5-ZZ-rAG"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="ac5-ZZ-rAG" firstAttribute="trailing" secondItem="mKK-Lt-wkJ" secondAttribute="trailing" constant="20" id="2xM-bx-LWf"/>
-                            <constraint firstItem="O57-6y-RTC" firstAttribute="top" secondItem="ac5-ZZ-rAG" secondAttribute="top" constant="30" id="7mP-HP-Ptq"/>
+                            <constraint firstItem="O57-6y-RTC" firstAttribute="top" secondItem="ac5-ZZ-rAG" secondAttribute="top" constant="50" id="7mP-HP-Ptq"/>
                             <constraint firstItem="O57-6y-RTC" firstAttribute="leading" secondItem="ac5-ZZ-rAG" secondAttribute="leading" constant="100" id="825-VR-XmX"/>
                             <constraint firstItem="ac5-ZZ-rAG" firstAttribute="trailing" secondItem="O57-6y-RTC" secondAttribute="trailing" constant="100" id="DFV-ZG-BIS"/>
                             <constraint firstItem="mKK-Lt-wkJ" firstAttribute="leading" secondItem="ac5-ZZ-rAG" secondAttribute="leading" constant="20" id="ECf-sC-amS"/>
@@ -466,7 +466,7 @@
                             <constraint firstItem="ac5-ZZ-rAG" firstAttribute="bottom" secondItem="fgE-qx-gXk" secondAttribute="bottom" constant="200" id="dLz-m4-u5f"/>
                             <constraint firstItem="wF3-4h-rHE" firstAttribute="top" secondItem="mKK-Lt-wkJ" secondAttribute="bottom" constant="20" id="jlT-HO-ZME"/>
                             <constraint firstItem="ac5-ZZ-rAG" firstAttribute="trailing" secondItem="wF3-4h-rHE" secondAttribute="trailing" constant="30" id="lOA-s7-zDI"/>
-                            <constraint firstItem="mKK-Lt-wkJ" firstAttribute="top" secondItem="O57-6y-RTC" secondAttribute="bottom" constant="50" id="mbN-tg-Q4P"/>
+                            <constraint firstItem="mKK-Lt-wkJ" firstAttribute="top" secondItem="O57-6y-RTC" secondAttribute="bottom" constant="80" id="mbN-tg-Q4P"/>
                             <constraint firstItem="wF3-4h-rHE" firstAttribute="leading" secondItem="ac5-ZZ-rAG" secondAttribute="leading" constant="30" id="vWo-FI-4nY"/>
                         </constraints>
                     </view>
