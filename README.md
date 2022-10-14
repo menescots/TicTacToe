@@ -3,8 +3,9 @@
   <h1 align='center' margin-top=0px paddint-top=0px > Tic Tac Toe </h1>
 </p>
 
-<p align="center">
-Tic Tac Toe game with three game options: two players on one screen, human vs computer using minimax algorithm and online game.
+<p align="justify">
+Tic Tac Toe game written in <b>Swift</b> with <b>UIKit</b>. It allows you to choose one of three game modes: two players on one phone screen, player vs computer and online game. <b>Minimax</b> in player-computer mode is implemented using a <b> recursive function </b> in which each player is designated either the maximizing player or the minimizing player gains.
+This continues back-and-forth (maximizing, minimizing, maximizing, etc.) until a base case in the recursive function is reached.
 </p>
 <br>
 <p align="center">
