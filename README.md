@@ -8,38 +8,41 @@ Tic Tac Toe game with three game options: two players on one screen, human vs co
 </p>
 <br>
 <p align="center">
-<img src="./docs/loggedUser.png" width="300" height="600" />
-<img src="./docs/logggedUserDark.png" width="300" height="600" /> 
+<img src="./docs/loggedUser.png" width="206" height="448" />
+<img src="./docs/loggedUserDark.png" width="206" height="448" /> 
 </p>
 <br>
 <p align="center">
-<img src="./CoffeeBee/docs/darkMode2.PNG" width="300" height="600" />
-<img src="./CoffeeBee/docs/lightMode2.PNG" width="300" height="600" /> 
+<h2 align="center"> Register and login with FireBase Auth. </h2>
+</p>
+<p align="center">
+<img src="./docs/loginScreen.png" width="206" height="448" />
+<img src="./docs/RegisterScreen.png" width="206" height="448" /> 
 </p>
 <br>
 <p align="center">
-<h2 align="center"> Choose a method, prepare the desired amount of water, coffee and follow the guide in the application. </h2>
+<h2 align="center"> Play with others online </h2>
+</p>
+<p align="center">
+<img src="./docs/agataScreen.png" width="206" height="448" />
+<img src="./docs/moziScreen.png" width="206" height="448" /> 
 </p>
 <br>
 <p align="center">
-<img src="./CoffeeBee/docs/makeCoffee.gif" width="300" height="600" />
+<h2 align="center"> Play with your friends on one phone</h2>
+</p>
+<p align="center">
+<img src="./docs/TwoPlayers.png" width="206" height="448" />
 </p>
 <br>
 <p align="center">
-<h2 align="center">Choose weight unit or change Celsius to Fahrenheit and conversely.</h2>
+<h2 align="center"> Try to defeat the algorithm! </h2>
+</p>
+<p align="center">
+<img src="./docs/minimax.png" width="206" height="448" />
+<img src="./docs/minimaxDark.png" width="206" height="448" /> 
 </p>
 <br>
-<p align="center">
-<img src="./CoffeeBee/docs/changeUnit.gif" width="300" height="600" />
-</p>
-<br>
-<p align="center">
-<h2 align="center">If you want to read more information about selected coffee brewing method tap on information button.</h2>
-</p>
-<br>
-<p align="center">
-<img src="./CoffeeBee/docs/WKWebView.gif" width="300" height="600" />
-</p>
 
 ## Requirements
 1. [Xcode](https://developer.apple.com/xcode/)
@@ -48,7 +51,7 @@ Tic Tac Toe game with three game options: two players on one screen, human vs co
 ## Set Up
 Clone GitHub repository
 ```
-git clone git@github.com:menescots/CoffeeBee.git
+git clone git@github.com:menescots/TicTacToe.git
 ```
 Install Pods 
 ```
@@ -56,11 +59,11 @@ pod install
 ```
 Open a project 
 ```
-open CoffeeBee.xcworkspace
+open TicTacToe.xcworkspace
 ```
 Build the project (⌘+B) and check for any errors. <br>
 Run the app (⌘+R) and test it.
 
 ## License
 
-Chatter is under MIT license. See the [LICENSE](LICENSE) file for more info.
+TicTacToe is under MIT license. See the [LICENSE](LICENSE) file for more info.
