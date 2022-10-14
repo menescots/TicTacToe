@@ -26,7 +26,6 @@ class MenuViewController: UIViewController {
             guard let loggedUser = UserDefaults.standard.value(forKey: "email") else {
                 return
             }
-            print(loggedUser)
             strongSelf.logOutButton.isHidden = false
             strongSelf.loggedUserLabel.text = "Logged as \(loggedUser)"
         })

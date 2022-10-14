@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         changeShapeOfFields()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeTapped))
-        passwordField.enablePasswordToggle()
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -26,7 +25,7 @@ class LoginViewController: UIViewController {
               !email.isEmpty,
               !password.isEmpty,
               password.count >= 6 else {
-            allertUserLoginError()
+            alertUserLoginError()
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
@@ -52,7 +51,7 @@ class LoginViewController: UIViewController {
         
         present(alert, animated: true)
     }
-    func allertUserLoginError() {
+    func alertUserLoginError() {
         let alert = UIAlertController(title: "Incorrect email or password",
                                       message: "Please double-check and try again",
                                       preferredStyle: .alert)
@@ -74,7 +73,10 @@ class LoginViewController: UIViewController {
         emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0)) //
         emailField.leftViewMode = .always
         passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        passwordField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        passwordField.rightViewMode = .always
         passwordField.isSecureTextEntry = true
         passwordField.leftViewMode = .always
+        passwordField.enablePasswordToggle()
     }
 }

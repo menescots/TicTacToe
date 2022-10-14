@@ -1,0 +1,16 @@
+PODS:
+  - PasswordTextField (1.2.0)
+
+DEPENDENCIES:
+  - PasswordTextField
+
+SPEC REPOS:
+  trunk:
+    - PasswordTextField
+
+SPEC CHECKSUMS:
+  PasswordTextField: 2548de43f150fc90a014da47b0d97e31aada4b94
+
+PODFILE CHECKSUM: f745cd4a3f01d17c5c486de2393e512e317a29c1
+
+COCOAPODS: 1.11.3

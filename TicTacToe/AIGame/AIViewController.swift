@@ -39,15 +39,13 @@ class AIViewController: UIViewController {
                 self.playComputerMove()
             }
         case 2:
+            guard let randomAvailablePosition = randomAvailablePosition else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let button: UIButton = self.view.viewWithTag(randomAvailablePosition! + 1) as! UIButton
-            button.setTitle("X", for: .normal)
+                let button: UIButton = self.view.viewWithTag(randomAvailablePosition + 1) as! UIButton
+                button.setTitle("X", for: .normal)
                 self.changeButtonFont(button: button)
             }
-            guard let randomAvailablePosition = randomAvailablePosition else {
-                return
-            }
-            board.addMove(player: Player.computer, atPosition: randomAvailablePosition)
+            self.board.addMove(player: Player.computer, atPosition: randomAvailablePosition)
             changeGameStatus()
         default:
             print("default")
@@ -72,8 +70,6 @@ class AIViewController: UIViewController {
                 humanScore += 1
             case TicTacToeAI.gameStatus.computerWin:
                 computerScore += 1
-            case TicTacToeAI.gameStatus.draw:
-                print("its a draw")
             default:
                 break
             }
@@ -89,6 +85,7 @@ class AIViewController: UIViewController {
     @IBAction func restartGameTapped(_ sender: Any) {
         resetGame()
         resetScore()
+        randomComputerMove()
     }
     func resetScore(){
         humanScore = 0

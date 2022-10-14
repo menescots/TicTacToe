@@ -27,26 +27,26 @@ class RegisterViewController: UIViewController {
               let password = passwordField.text,
               !password.isEmpty,
               password.count >= 6 else {
+            errorCreatingUserAlert()
             return
         }
         if checkPassword() {
             let safeEmail = safeEmail(emailAdress: email)
             
             database.child("tictactoe").child("users").child(safeEmail).observeSingleEvent(of: .value,
-                                                         with: { snapshot in
-                print(snapshot)
+                                                                                           with: { snapshot in
                 guard !snapshot.exists() else {
                     self.userExistsAlert()
                     return
                 }
                 FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password){ authResult, error in
-                
-                guard authResult != nil, error == nil,
-                      let userid = authResult?.user.uid,
-                      let userEmail = authResult?.user.email else {
-                    self.errorCreatingUserAlert()
-                    return
-                }
+                    
+                    guard authResult != nil, error == nil,
+                          let userid = authResult?.user.uid,
+                          let userEmail = authResult?.user.email else {
+                        self.errorCreatingUserAlert()
+                        return
+                    }
                     self.database.child("tictactoe").child("users").child(self.safeEmail(emailAdress: userEmail)).child("Request").setValue(userid)
                     self.navigationController?.dismiss(animated: true)
                     UserDefaults.standard.set(email, forKey: "email")
